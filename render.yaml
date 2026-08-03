@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: a-stock-quant-monitor
+    runtime: docker
+    plan: free
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 10000
+      - key: UPDATE_INTERVAL
+        value: 300
+      - key: DEBUG
+        value: false
+      - key: TUSHARE_TOKEN
+        sync: false
+    healthCheckPath: /api/data
+    autoDeploy: true
